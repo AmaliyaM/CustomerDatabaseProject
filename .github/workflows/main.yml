@@ -31,6 +31,8 @@ jobs:
       - name: MSBuild
         working-directory: src
         run: msbuild CM.Customer.Database.csproj
+        env:
+          ACTIONS_ALLOW_UNSECURE_COMMANDS: 'true'
         
       # Publish an artifact
       - uses: actions/upload-artifact@v2
