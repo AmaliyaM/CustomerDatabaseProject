@@ -24,11 +24,14 @@ jobs:
     steps:
       # Checks-out your repository under $GITHUB_WORKSPACE, so your job can access it
       - uses: actions/checkout@v2
+      #Create dacpac
+      - name: Setup MSBuild.exe
+        uses: warrenbuckley/Setup-MSBuild@v1
 
-      # create dacpac using MSBUILD executable
-      - name: create dacpac
-        run: |
-           msbuild.exe 'Create dacpac from CM.Customer.Database.sqlproj'   /p:Configuration=Release
+      - name: MSBuild
+        working-directory: src
+        run: msbuild CM.Customer.Database.csproj
+        
       # Publish an artifact
       - uses: actions/upload-artifact@v2
         with:
