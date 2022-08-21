@@ -32,7 +32,7 @@ jobs:
 
       - name: MSBuild
         working-directory: CM.Customer.Database
-        run: msbuild CM.Customer.Database.csproj
+        run: msbuild CM.Customer.Database.sqlproj
         env:
           ACTIONS_ALLOW_UNSECURE_COMMANDS: 'true'
         
